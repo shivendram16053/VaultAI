@@ -2,7 +2,7 @@ import React, { useContext, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8000/api/";
+const BASE_URL = "https://expense-buddy-9aqs.onrender.com/api/";
 
 const GlobalContext = React.createContext();
 
