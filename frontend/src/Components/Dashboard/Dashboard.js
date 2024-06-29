@@ -5,6 +5,7 @@ import { InnerLayout, MainLayout } from "../../Styles/Layouts";
 import Chart from "../Chart/Chart";
 import "./Dashboard.css";
 import { Link } from "react-router-dom";
+import LandingPage from "../LandingPage/LandingPage";
 
 function Dashboard() {
   const {
@@ -72,12 +73,7 @@ function Dashboard() {
           </InnerLayout>
         </MainLayout>
       ) : (
-        <div id="welcome-container">
-          <h1 className="welcome-title">Welcome to EXPENSE BUDDY</h1>
-          <p className="welcome-text">Manage your incomes and expenses with ease.</p>
-          <p className="welcome-text">Track your financial activities, view detailed reports, and maintain your budget effectively.</p>
-          <p className="welcome-text"><Link to={"/login"}  style={{color:"orange", textDecoration:"none"}}>Log In</Link> or <Link to={"/signup"}  style={{color:"orange", textDecoration:"none"}}>Sign Up</Link> to get started!</p>
-        </div>
+        <LandingPage/>
       )}
     </div>
   );

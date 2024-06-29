@@ -19,7 +19,9 @@ function Navigation() {
   };
 
   return (
-    <nav className="nav-styled">
+    <>
+    {name ? (<>
+      <nav className="nav-styled">
       <div className="user-con">
         <img src={avatar} alt="User Avatar" />
         <div>
@@ -29,9 +31,7 @@ function Navigation() {
           <p>{name ? `Total Balance : ₹ ${totalBalance()}` : ""}</p>
         </div>
       </div>
-      {name ? (
-        <>
-          <ul className="menu-items">
+      <ul className="menu-items">
             <li>
               <Link
                 to="/"
@@ -80,14 +80,9 @@ function Navigation() {
               <span onClick={handleLogout}>Sign Out</span>
             </li>
           </div>
-        </>
-      ) : (
-        <div id="btnOnNav">
-           <Link to={"/signup"}>SignUp</Link>
-           <Link to={"/login"}>Login</Link>       
-        </div>
-      )}
     </nav>
+    </>):""}
+    </>
   );
 }
 

@@ -16,6 +16,10 @@ app.use(cors());
 app.use('/api', transactions);
 app.use('/api', user);
 
+app.get('/api/wake-up', (req, res) => {
+    res.send({ message: 'Server is awake' });
+});
+
 // Start the server
 const server = () => {
     db()
