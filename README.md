@@ -1,7 +1,7 @@
 # Expense Buddy
 
 # Clone the repository
-$ git clone https://github.com/your-username/expense-buddy.git
+$ git clone https://github.com/shivendram16053/expense-buddy.git
 $ cd expense-buddy
 
 # Project Overview
