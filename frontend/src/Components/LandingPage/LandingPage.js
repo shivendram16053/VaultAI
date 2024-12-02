@@ -37,7 +37,7 @@ const LandingPage = () => {
       )}
       <div id="header">
         <div id="logo">
-          <h1>EXPENSE BUDDY</h1>
+          <h1>VaultAI</h1>
         </div>
         <ul id="nav-head">
           <li>
@@ -61,7 +61,7 @@ const LandingPage = () => {
       <div id="hero-section">
         <div id="texts">
           <h2 id="fade-in">WELCOME TO</h2>
-          <h1 id="slide-in">EXPENSE BUDDY</h1>
+          <h1 id="slide-in">VaultAI</h1>
           <p id="fade-in">
             Track expenses, manage budgets, and achieve your financial goals.
           </p>
@@ -107,9 +107,9 @@ const LandingPage = () => {
       <div id="faq-section">
         <h2>Frequently Asked Questions</h2>
         <div className="faq-item">
-          <h3>What is Expense Buddy?</h3>
+          <h3>What is VaultAI?</h3>
           <p>
-            Expense Buddy is a comprehensive tool to help you track your
+            VaultAI is a comprehensive tool to help you track your
             expenses, manage your budgets, and achieve your financial goals.
           </p>
         </div>
@@ -128,9 +128,9 @@ const LandingPage = () => {
           </p>
         </div>
         <div className="faq-item">
-          <h3>What features does Expense Buddy offer?</h3>
+          <h3>What features does VaultAI offer?</h3>
           <p>
-            Expense Buddy offers expense tracking, budget management, financial
+            VaultAI offers expense tracking, budget management, financial
             goal setting, and detailed reports to help you manage your finances
             effectively.
           </p>

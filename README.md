@@ -1,11 +1,11 @@
-# Expense Buddy
+# VaultAI
 
 # Clone the repository
 $ git clone https://github.com/shivendram16053/expense-buddy.git
 $ cd expense-buddy
 
 # Project Overview
-Expense Buddy is a web application that helps you manage your finances effectively. It allows users to track incomes, expenses, and provides a comprehensive financial overview.
+VaultAI is a web application that helps you manage your finances effectively. It allows users to track incomes, expenses, and provides a comprehensive financial overview.
 
 ## Features
 
@@ -44,7 +44,7 @@ $ npm start
 $ cd backend
 $ npm start
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to use Expense Buddy.
+Open [http://localhost:3000](http://localhost:3000) in your browser to use VaultAI.
 
 ## Contributing
 
