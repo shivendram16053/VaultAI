@@ -9,6 +9,7 @@ import { GlobalProvider } from './Context/GlobalContext.js';
 import TransactionHistory from './History/TransactionHistory.js';
 import Login from './Auth/Login.js';
 import Signup from './Auth/SignUp.js';
+import VerifyEmail from './Auth/Verify.js';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
                         <Route path="/transaction" element={<TransactionHistory/>} />
                         <Route path="/login" element={<Login/>} />
                         <Route path="/signup" element={<Signup/>} />
+                        <Route path="/verify/:token" element={<VerifyEmail/>} />
                     </Routes>
                     </GlobalProvider>
                 
