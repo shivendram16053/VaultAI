@@ -15,7 +15,7 @@ function App() {
 
     return (
         <Router>
-            <div className="App" style={{backgroundColor:"rgba(0, 0, 0, 0.9)",height:"100vh"}}>
+            <div className="App" style={{backgroundColor:"rgba(47, 47, 47, 0.9)",height:"100vh"}}>
                
                   <GlobalProvider>
                     <Navigation />

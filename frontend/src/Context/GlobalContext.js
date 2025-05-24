@@ -14,19 +14,19 @@ export const GlobalProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const signup = async (userData) => {
-    try {
-      const response = await axios.post(`${BASE_URL}signup`, userData);
-      setError(null); // Clear any previous error
-      const { token, email ,name} = response.data;
-      localStorage.setItem('authToken', token);
-      localStorage.setItem('userEmail', email);
-      localStorage.setItem('userName', name);
-      navigate('/')
-    } catch (err) {
-      setError(err.response?.data?.message);
-    }
-  };
+  try {
+    const response = await axios.post(`${BASE_URL}signup`, userData);
+    setError(null); // Clear any previous error
 
+    // Signup success response does NOT include token yet
+    // Show message to user to verify email before logging in
+    alert(response.data.message || "Signup successful! Please verify your email.");
+
+    // Don't store token or redirect because user must verify email first
+  } catch (err) {
+    setError(err.response?.data?.message || "Signup failed");
+  }
+};
   const login = async (userData) =>{
     try{
         const response = await axios.post(`${BASE_URL}login`, userData);
