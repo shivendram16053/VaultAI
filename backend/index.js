@@ -1,13 +1,15 @@
-const express = require('express');
-const cors = require('cors');
-const { db } = require('./db/db');
-const transactions = require('./routes/transaction');
-const user = require('./routes/user')
-const chat = require('./routes/chat')
-require('dotenv').config();
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import { db } from './db/db.js';
+import transactions from './routes/transaction.js';
+import user from './routes/user.js';
+import chat from './routes/chat.js';
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 // Middlewares
 app.use(express.json());
@@ -16,14 +18,11 @@ app.use(cors());
 // Routes
 app.use('/api', transactions);
 app.use('/api', user);
-app.use('/api',chat);
-
+app.use('/api', chat);
 
 app.get('/api/wake-up', (req, res) => {
     res.send({ message: 'Server is awake' });
 });
-
-
 
 // Start the server
 const server = () => {

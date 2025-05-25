@@ -1,14 +1,24 @@
-const { addExpense, getExpense, deleteExpense } = require('../controller/expense');
-const { addIncome, getIncomes, deleteIncome } = require('../controller/income');
+import { Router } from 'express';
+import {
+  addExpense,
+  getExpense,
+  deleteExpense
+} from '../controller/expense.js';
 
-const router = require('express').Router();
+import {
+  addIncome,
+  getIncomes,
+  deleteIncome
+} from '../controller/income.js';
 
+const router = Router();
 
-router.post('/add-income', addIncome)
-    .get('/get-incomes', getIncomes)
-    .delete('/delete-income/:id', deleteIncome)
-    .post('/add-expense', addExpense)
-    .get('/get-expenses', getExpense)
-    .delete('/delete-expense/:id', deleteExpense)
+router
+  .post('/add-income', addIncome)
+  .get('/get-incomes', getIncomes)
+  .delete('/delete-income/:id', deleteIncome)
+  .post('/add-expense', addExpense)
+  .get('/get-expenses', getExpense)
+  .delete('/delete-expense/:id', deleteExpense);
 
-module.exports = router
+export default router;

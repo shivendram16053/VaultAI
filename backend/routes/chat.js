@@ -1,17 +1,11 @@
-const express = require("express");
-const router = express.Router();
-const Chat = require("../models/chat");
+import express from "express";
+import Chat from "../models/chat.js";
+import { GoogleGenerativeAI } from "@google/genai";
 
-let ai;
+const router = express.Router();
+const ai = new GoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY });
 const MODEL_NAME = "gemini-2.0-flash";
 
-// Dynamically import GoogleGenAI once
-(async () => {
-  const { GoogleGenerativeAI } = await import('@google/genai');
-  ai = new GoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY });
-})();
-
-// 📩 Chat endpoint (user sends a message)
 router.post("/chat", async (req, res) => {
   const { email, message } = req.body;
 
@@ -21,11 +15,9 @@ router.post("/chat", async (req, res) => {
     const model = ai.getGenerativeModel({ model: MODEL_NAME });
 
     console.time("AI Response Time");
-
     const result = await model.generateContent(`User says: "${message}"`);
     const response = await result.response;
     const reply = response.text();
-
     console.timeEnd("AI Response Time");
 
     await Chat.create({ email, sender: "ai", message: reply });
@@ -37,7 +29,6 @@ router.post("/chat", async (req, res) => {
   }
 });
 
-// 📜 Fetch chat history
 router.get("/chat/:email", async (req, res) => {
   const { email } = req.params;
 
@@ -50,7 +41,6 @@ router.get("/chat/:email", async (req, res) => {
   }
 });
 
-// 💸 AI Insight on income/expense entry
 router.post("/transaction", async (req, res) => {
   const { type, amount, description } = req.body;
 
@@ -70,4 +60,4 @@ router.post("/transaction", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
