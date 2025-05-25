@@ -1,9 +1,9 @@
 import express from "express";
 import Chat from "../models/chat.js";
-import { GoogleGenerativeAI } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 
 const router = express.Router();
-const ai = new GoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const MODEL_NAME = "gemini-2.0-flash";
 
 router.post("/chat", async (req, res) => {
