@@ -53,7 +53,7 @@ const Login = () => {
                 </button>
 
                 <div className="auth-switch">
-                    Don’t have an account?{' '}
+                    Don't have an account?{' '}
                     <Link to="/signup" className="auth-link">Sign Up Now</Link>
                 </div>
             </form>
