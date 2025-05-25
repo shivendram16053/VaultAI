@@ -87,3 +87,34 @@ input::placeholder, textarea::placeholder {
     border: 2px solid #333;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.3);;
 }
+.aiMarkdown h3 {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.aiMarkdown strong {
+  font-weight: bold;
+}
+
+.aiMarkdown {
+  font-weight: normal;
+  white-space: pre-wrap;
+}
+.aiMarkdown p {
+  margin: 0.1em 0; /* smaller vertical spacing */
+  line-height: 1.9; /* tighter line height */
+}
+
+.aiMarkdown ul {
+  margin: 0.1em 0;
+  padding-left: 1.2em;
+}
+
+.aiMarkdown li {
+  margin-bottom: 0.1em;
+}
+
+.aiMarkdown h1, .aiMarkdown h2, .aiMarkdown h3 {
+  margin: 0.4em 0 0.3em;
+  line-height: 1.2;
+}

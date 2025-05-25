@@ -74,6 +74,17 @@ function Navigation() {
                 Expense
               </Link>
             </li>
+            <li>
+              <Link
+                to="/chat"
+                className={`nav-link ${
+                  activeLink === "/chat" ? "active" : ""
+                }`}
+                onClick={() => setActiveLink("/chat")}
+              >
+                Ask Vault-AI
+              </Link>
+            </li>
           </ul>
           <div className="bottom-nav">
             <li>

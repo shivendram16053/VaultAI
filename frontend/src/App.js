@@ -10,6 +10,7 @@ import TransactionHistory from './History/TransactionHistory.js';
 import Login from './Auth/Login.js';
 import Signup from './Auth/SignUp.js';
 import VerifyEmail from './Auth/Verify.js';
+import Chat from './Components/Chat/Chat.js';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
                         <Route path="/login" element={<Login/>} />
                         <Route path="/signup" element={<Signup/>} />
                         <Route path="/verify/:token" element={<VerifyEmail/>} />
+                        <Route path="/chat" element={<Chat/>} />
                     </Routes>
                     </GlobalProvider>
                 

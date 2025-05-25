@@ -3,6 +3,7 @@ const cors = require('cors');
 const { db } = require('./db/db');
 const transactions = require('./routes/transaction');
 const user = require('./routes/user')
+const chat = require('./routes/chat')
 require('dotenv').config();
 
 const app = express();
@@ -15,10 +16,14 @@ app.use(cors());
 // Routes
 app.use('/api', transactions);
 app.use('/api', user);
+app.use('/api',chat);
+
 
 app.get('/api/wake-up', (req, res) => {
     res.send({ message: 'Server is awake' });
 });
+
+
 
 // Start the server
 const server = () => {
