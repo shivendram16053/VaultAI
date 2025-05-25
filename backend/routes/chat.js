@@ -5,21 +5,24 @@ import { GoogleGenAI } from "@google/genai";
 const router = express.Router();
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const MODEL_NAME = "gemini-2.0-flash";
-
+// 📩 Chat endpoint (user sends a message)
 router.post("/chat", async (req, res) => {
   const { email, message } = req.body;
 
   try {
+    // Save user message
     await Chat.create({ email, sender: "user", message });
 
-    const model = ai.getGenerativeModel({ model: MODEL_NAME });
-
+    // Call Gemini AI
+    const response = await ai.models.generateContent({
+      model: MODEL_NAME,
+      contents: `User says: "${message}"`,
+    });
     console.time("AI Response Time");
-    const result = await model.generateContent(`User says: "${message}"`);
-    const response = await result.response;
-    const reply = response.text();
+    const reply = response.text;
     console.timeEnd("AI Response Time");
 
+    // Save AI reply
     await Chat.create({ email, sender: "ai", message: reply });
 
     res.json({ reply });
@@ -29,6 +32,7 @@ router.post("/chat", async (req, res) => {
   }
 });
 
+// 📜 Fetch chat history
 router.get("/chat/:email", async (req, res) => {
   const { email } = req.params;
 
@@ -41,17 +45,19 @@ router.get("/chat/:email", async (req, res) => {
   }
 });
 
+// 💸 AI Insight on income/expense entry
 router.post("/transaction", async (req, res) => {
   const { type, amount, description } = req.body;
 
   const prompt = `The user just added a ${type} of ₹${amount} for "${description}". Give a short financial tip or suggestion.`;
 
   try {
-    const model = ai.getGenerativeModel({ model: MODEL_NAME });
+    const response = await ai.models.generateContent({
+      model: MODEL_NAME,
+      contents: prompt,
+    });
 
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const suggestion = response.text();
+    const suggestion = response.text;
 
     res.json({ suggestion });
   } catch (err) {
@@ -59,5 +65,4 @@ router.post("/transaction", async (req, res) => {
     res.status(500).json({ suggestion: "Could not get a suggestion." });
   }
 });
-
 export default router;
