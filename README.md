@@ -1,7 +1,7 @@
 # VaultAI
 
 # Clone the repository
-$ git clone https://github.com/shivendram16053/expense-buddy.git
+$ git clone https://github.com/shivendram16053/vaultai.git
 $ cd expense-buddy
 
 # Project Overview
